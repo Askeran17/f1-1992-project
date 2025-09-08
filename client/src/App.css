@@ -1,3 +1,44 @@
+/* --- Hide nav buttons and show burger menu on mobile --- */
+@media (max-width: 600px) {
+  .MuiToolbar-root .MuiButton-root {
+    display: none !important;
+  }
+  .MuiToolbar-root .MuiIconButton-root {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 601px) {
+  .MuiToolbar-root .MuiButton-root {
+    display: flex !important;
+  }
+  .MuiToolbar-root .MuiIconButton-root {
+    display: none !important;
+  }
+}
+/* --- Horizontal scroll for NavBar on mobile --- */
+@media (max-width: 600px) {
+  .MuiToolbar-root {
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .MuiToolbar-root > .MuiBox-root {
+    min-width: max-content;
+    flex-wrap: nowrap !important;
+  }
+  .MuiButton-root {
+    white-space: nowrap;
+  }
+  /* Hide scrollbar for Webkit browsers */
+  .MuiToolbar-root::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for Firefox */
+  .MuiToolbar-root {
+    scrollbar-width: none;
+  }
+}
 .App {
   text-align: center;
 }
