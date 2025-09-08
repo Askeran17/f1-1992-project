@@ -2,6 +2,9 @@
 
 A fullstack web application dedicated to the 1992 Formula 1 World Championship season. Explore all drivers, teams, and races from one of the most iconic years in F1 history.
 
+## Live Demo
+The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-project.onrender.com)
+
 ## Features
 - **Responsive SPA**: Modern, adaptive design for desktop and mobile
 - **All Drivers, Teams, and Races**: Browse detailed info and images
@@ -10,10 +13,13 @@ A fullstack web application dedicated to the 1992 Formula 1 World Championship s
 - **Back Button**: Easy navigation between pages
 - **Beautiful Footer**: Themed and informative
 - **REST API**: Node.js/Express backend serving F1 data
+- **PostgreSQL Database**: All F1 data is stored and managed in a PostgreSQL database
+
 
 ## Tech Stack
 - **Frontend**: React, Material UI, React Router
 - **Backend**: Node.js, Express
+- **Database**: PostgreSQL
 - **Deployment**: Render.com
 
 ## Getting Started
@@ -61,12 +67,6 @@ f1-1992-project/
   client/      # React frontend
   server/      # Express backend
 ```
-
-## Live Demo
-The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-project.onrender.com)
-
-## License
-MIT
 
 ---
 
