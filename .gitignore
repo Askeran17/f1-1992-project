@@ -1,3 +1,5 @@
+# Игнорировать дамп базы данных
+f1_1992_data.sql
 
 # Node modules
 /node_modules/
