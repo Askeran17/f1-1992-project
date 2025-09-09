@@ -14,7 +14,7 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
 - **Beautiful Footer**: Themed and informative
 - **REST API**: Node.js/Express backend serving F1 data
 - **PostgreSQL Database**: All F1 data is stored and managed in a PostgreSQL database
-
+- **API Endpoints**: `/api/races` (all races), `/api/races/:id/results` (results with driver/team names)
 
 ## Tech Stack
 - **Frontend**: React, Material UI, React Router
