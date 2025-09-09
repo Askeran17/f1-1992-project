@@ -8,21 +8,23 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-const driverRoutes = require('./routes/drivers');
-app.use('/api/drivers', driverRoutes);
 
 const raceRoutes = require('./routes/races');
 app.use('/api/races', raceRoutes);
 
+
 const path = require('path');
 
-// Отдача статических файлов из React-сборки
-app.use(express.static(path.resolve(__dirname, '../client/build')));
+// Подключать статику и SPA fallback только если не тестовая среда
+if (process.env.NODE_ENV !== 'test') {
+  // Отдача статических файлов из React-сборки
+  app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-// Обработка всех остальных маршрутов — SPA fallback
-app.use((req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-});
+  // Обработка всех остальных маршрутов — SPA fallback
+  app.use((req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  });
+}
 
 
 module.exports = app;

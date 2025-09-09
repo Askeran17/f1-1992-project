@@ -61,6 +61,16 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
    ```
 2. The server is configured to serve the static build from `/client/build`.
 
+## Testing
+
+- **Automated API tests**: The backend API endpoints are covered by automated tests using Jest and Supertest. See `server/tests/races.test.js` for examples.
+- To run tests, use:
+  ```sh
+  cd server
+  npm test
+  ```
+- Tests ensure that the main endpoints (e.g., `/api/races`, `/api/races/:id/results`) return correct data and status codes.
+
 ## Project Structure
 ```
 f1-1992-project/

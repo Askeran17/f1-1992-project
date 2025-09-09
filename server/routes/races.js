@@ -3,7 +3,7 @@ const pool = require('../db');
 
 const router = express.Router();
 
-// GET /api/races - список всех гонок
+// GET /api/races - list of all races
 router.get('/', async (req, res) => {
   try {
     const result = await pool.query('SELECT id, name, date FROM races ORDER BY date ASC');
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET /api/races/:id/results
-// GET /api/races/:id/results с JOIN имен гонщика и команды
+// GET /api/races/:id/results with JOIN names of drivers and teams
 router.get('/:id/results', async (req, res) => {
   const raceId = req.params.id;
   try {
