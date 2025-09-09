@@ -11,6 +11,9 @@ app.use(express.json());
 const driverRoutes = require('./routes/drivers');
 app.use('/api/drivers', driverRoutes);
 
+const raceRoutes = require('./routes/races');
+app.use('/api/races', raceRoutes);
+
 const path = require('path');
 
 // Отдача статических файлов из React-сборки

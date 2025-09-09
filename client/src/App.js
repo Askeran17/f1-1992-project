@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -7,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import AllDrivers from './AllDrivers';
 import AllTeams from './AllTeams';
 import AllRaces from './AllRaces';
+import RaceResults from './RaceResults';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -18,9 +18,6 @@ import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 
-
-// ...existing code...
-
 function App() {
   return (
     <Router>
@@ -31,6 +28,7 @@ function App() {
           <Route path="/drivers" element={<><BackButton /><AllDrivers /></>} />
           <Route path="/teams" element={<><BackButton /><AllTeams /></>} />
           <Route path="/races" element={<><BackButton /><AllRaces /></>} />
+          <Route path="/results" element={<><BackButton /><RaceResults /></>} />
         </Routes>
       </Box>
       <Footer />
@@ -57,6 +55,9 @@ function Home() {
           </Button>
           <Button component={Link} to="/races" variant="contained" color="info" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
             See All Races
+          </Button>
+          <Button component={Link} to="/results" variant="contained" color="primary" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
+            All Race Results
           </Button>
         </Box>
         <Box mt={4}>
@@ -108,6 +109,9 @@ function NavBar() {
               <MenuItem onClick={handleMenuClose} component={Link} to="/races">
                 All Races
               </MenuItem>
+              <MenuItem onClick={handleMenuClose} component={Link} to="/results">
+                All Results
+              </MenuItem>
             </Menu>
           </Box>
         ) : (
@@ -123,6 +127,9 @@ function NavBar() {
             </Button>
             <Button component={Link} to="/races" color="primary" sx={{ mx: 1 }}>
               All Races
+            </Button>
+            <Button component={Link} to="/results" color="primary" sx={{ mx: 1 }}>
+              All Results
             </Button>
           </Box>
         )}

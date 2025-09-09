@@ -1,6 +1,6 @@
 # F1 1992 Project
 
-A fullstack web application dedicated to the 1992 Formula 1 World Championship season. Explore all drivers, teams, and races from one of the most iconic years in F1 history.
+A fullstack PERN web application dedicated to the 1992 Formula 1 World Championship season. Explore all drivers, teams, and races from one of the most iconic years in F1 history.
 
 ## Live Demo
 The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-project.onrender.com)
