@@ -1,10 +1,6 @@
-import Container from '@mui/material/Container';
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import ChromaGrid from './components/ChromaGrid';
+import './components/ChromaGrid.css';
 
 const races = [
   { round: 1, name: 'South African Grand Prix', winner: 'Nigel Mansell', photo: '/images/africa92.jpg', youtube: 'https://www.youtube.com/watch?v=1RYx4-kJMmo' },
@@ -26,25 +22,23 @@ const races = [
 ];
 
 export default function AllRaces() {
+  // Преобразуем данные для ChromaGrid
+  const items = races.map(race => ({
+    image: race.photo,
+    title: race.name,
+    subtitle: 'Winner: ' + race.winner,
+    handle: 'Round ' + race.round,
+    borderColor: '#e10600',
+    gradient: 'linear-gradient(145deg, #e10600, #000)',
+    url: race.youtube
+  }));
+
   return (
-    <Container maxWidth="xl" sx={{ py: { xs: 2, sm: 4 }, px: { xs: 1, sm: 2 } }}>
-      <Typography variant="h3" align="center" gutterBottom>All Races</Typography>
-      <Grid container spacing={3} justifyContent="center">
-        {races.map((race) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={race.round}>
-            <Card sx={{ minHeight: 200, display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2 }}>
-                <img src={race.photo} alt={race.name} style={{ width: '100%', maxHeight: 100, objectFit: 'cover', borderRadius: 8, marginBottom: 8 }} />
-                <Typography variant="h6" noWrap align="center">{race.name}</Typography>
-                <Typography color="text.secondary" align="center">Winner: {race.winner}</Typography>
-                <Link href={race.youtube} target="_blank" rel="noopener" underline="hover" color="primary">
-                  Watch Highlights
-                </Link>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <div style={{ minHeight: '100vh', background: '#181818', padding: '2rem 0' }}>
+      <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1 }}>
+        All Races — 1992 Season
+      </h2>
+      <ChromaGrid items={items} columns={3} rows={Math.ceil(items.length / 3)} />
+    </div>
   );
 }

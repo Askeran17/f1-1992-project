@@ -1,9 +1,6 @@
-import Container from '@mui/material/Container';
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import ChromaGrid from './components/ChromaGrid';
+import './components/ChromaGrid.css';
 
 const teams = [
   { name: 'Williams-Renault', drivers: ['Nigel Mansell', 'Riccardo Patrese'], car: '/images/wf92.jpg', description: 'Williams dominated the 1992 season with the FW14B and advanced technology.' },
@@ -24,23 +21,23 @@ const teams = [
 ];
 
 export default function AllTeams() {
+  // Преобразуем данные для ChromaGrid
+  const items = teams.map(team => ({
+    image: team.car,
+    title: team.name,
+    subtitle: 'Drivers: ' + team.drivers.join(', '),
+    handle: team.description,
+    borderColor: '#e10600',
+    gradient: 'linear-gradient(145deg, #e10600, #000)',
+    url: undefined
+  }));
+
   return (
-    <Container maxWidth="xl" sx={{ py: { xs: 2, sm: 4 }, px: { xs: 1, sm: 2 } }}>
-      <Typography variant="h3" align="center" gutterBottom>All Teams</Typography>
-      <Grid container spacing={3} justifyContent="center">
-        {teams.map((team) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={team.name}>
-            <Card sx={{ minHeight: 250, display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2 }}>
-                <img src={team.car} alt={team.name + ' car'} style={{ width: '100%', maxHeight: 140, objectFit: 'cover', borderRadius: 8, marginBottom: 8 }} />
-                <Typography variant="h6" noWrap align="center">{team.name}</Typography>
-                <Typography color="text.secondary" noWrap align="center">Drivers: {team.drivers.join(', ')}</Typography>
-                <Typography color="text.secondary" paragraph align="center" sx={{ fontSize: { xs: '0.95rem', sm: '1rem' } }}>{team.description}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <div style={{ minHeight: '100vh', background: '#181818', padding: '2rem 0' }}>
+      <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1 }}>
+        All Teams — 1992 Season
+      </h2>
+      <ChromaGrid items={items} columns={3} rows={Math.ceil(items.length / 3)} />
+    </div>
   );
 }

@@ -1,9 +1,6 @@
-import Container from '@mui/material/Container';
 import React from 'react';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import ChromaGrid from './components/ChromaGrid';
+import './components/ChromaGrid.css';
 
 const drivers = [
   { name: 'Nigel Mansell', team: 'Williams-Renault', country: 'UK', points: 108, photo: '/images/nigel.jpg' },
@@ -11,7 +8,7 @@ const drivers = [
   { name: 'Michael Schumacher', team: 'Benetton-Ford', country: 'Germany', points: 53, photo: '/images/schum922.jpg' },
   { name: 'Martin Brundle', team: 'Benetton-Ford', country: 'UK', points: 38, photo: '/images/brundle92.webp' },
   { name: 'Ayrton Senna', team: 'McLaren-Honda', country: 'Brazil', points: 50, photo: '/images/senna.webp' },
-  { name: 'Gerhard Berger', team: 'McLaren-Honda', country: 'Austria', points: 49, photo: '/images/berger92.jpeg' },
+  { name: 'Gerhard Berger', team: 'McLaren-Honda', country: 'Austria', points: 49, photo: '/images/berger92.jpg' },
   { name: 'Mika Häkkinen', team: 'Lotus-Ford', country: 'Finland', points: 11, photo: '/images/hakkinen92.jpg' },
   { name: 'Johnny Herbert', team: 'Lotus-Ford', country: 'UK', points: 2, photo: '/images/herbert92.jpg' },
   { name: 'Jean Alesi', team: 'Ferrari', country: 'France', points: 18, photo: '/images/alesi92.jpg' },
@@ -38,26 +35,26 @@ const drivers = [
   { name: 'Damon Hill', team: 'Brabham-Judd', country: 'UK', points: 0, photo: '/images/hill92.jpg' },
 ];
 
+function AllDrivers() {
+  // Преобразуем данные для ChromaGrid
+  const items = drivers.map(driver => ({
+    image: driver.photo,
+    title: driver.name,
+    subtitle: driver.team,
+    handle: driver.country + ' — ' + driver.points + ' pts',
+    borderColor: '#e10600',
+    gradient: 'linear-gradient(145deg, #e10600, #000)',
+    url: undefined
+  }));
 
-export default function AllDrivers() {
   return (
-    <Container maxWidth="xl" sx={{ py: { xs: 2, sm: 4 }, px: { xs: 1, sm: 2 } }}>
-      <Typography variant="h3" align="center" gutterBottom>All Drivers</Typography>
-      <Grid container spacing={3} justifyContent="center">
-        {drivers.map((driver) => (
-          <Grid item xs={12} sm={6} md={4} lg={3} key={driver.name}>
-            <Card sx={{ minHeight: 250, display: 'flex', flexDirection: 'column', height: '100%' }}>
-              <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 2 }}>
-                <img src={driver.photo} alt={driver.name} style={{ width: '100%', maxHeight: 180, objectFit: 'cover', borderRadius: 8, marginBottom: 8 }} />
-                <Typography variant="h6" noWrap align="center">{driver.name}</Typography>
-                <Typography color="text.secondary" noWrap align="center">{driver.team}</Typography>
-                <Typography color="text.secondary" align="center">{driver.country}</Typography>
-                <Typography color="primary" align="center">Points: {driver.points}</Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <div style={{ minHeight: '100vh', background: '#181818', padding: '2rem 0' }}>
+      <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1 }}>
+        All Drivers — 1992 Season
+      </h2>
+      <ChromaGrid items={items} columns={3} rows={Math.ceil(items.length / 3)} />
+    </div>
   );
 }
+
+export default AllDrivers;
