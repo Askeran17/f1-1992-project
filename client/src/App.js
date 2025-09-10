@@ -10,7 +10,6 @@ import RaceResults from './RaceResults';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import MenuIcon from '@mui/icons-material/Menu';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -22,13 +21,13 @@ function App() {
   return (
     <Router>
       <NavBar />
-      <Box sx={{ minHeight: '80vh' }}>
+  <Box sx={{ minHeight: '80vh', mt: 0, pt: 0 }}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/drivers" element={<><BackButton /><AllDrivers /></>} />
-          <Route path="/teams" element={<><BackButton /><AllTeams /></>} />
-          <Route path="/races" element={<><BackButton /><AllRaces /></>} />
-          <Route path="/results" element={<><BackButton /><RaceResults /></>} />
+            <Route path="/drivers" element={<AllDrivers />} />
+            <Route path="/teams" element={<AllTeams />} />
+            <Route path="/races" element={<AllRaces />} />
+            <Route path="/results" element={<RaceResults />} />
         </Routes>
       </Box>
       <Footer />
@@ -61,22 +60,13 @@ function Home() {
           </Button>
         </Box>
         <Box mt={4}>
-          <img src="/images/wf92.jpg" alt="Williams FW14B" style={{ width: '100%', maxWidth: 650, height: 'auto', maxHeight: 400, objectFit: 'cover', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }} />
+          <img src="/images/f1drivers92.jpg" alt="F1 Drivers 1992" style={{ width: '100%', maxWidth: 950, height: 'auto', maxHeight: 478, objectFit: 'cover', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }} />
         </Box>
       </Box>
     </Container>
   );
 }
 
-function BackButton() {
-  return (
-    <Box mb={2}>
-      <IconButton onClick={() => window.history.back()} color="primary">
-        <ArrowBackIcon />
-      </IconButton>
-    </Box>
-  );
-}
 
 function NavBar() {
   const theme = useTheme();
@@ -86,7 +76,7 @@ function NavBar() {
   const handleMenuClose = () => setAnchorEl(null);
 
   return (
-    <AppBar position="static" color="default" sx={{ mb: 4 }}>
+    <AppBar position="static" color="default" sx={{ mb: 0 }}>
       <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center', mr: 2 }}>
           <img src="/images/f1logo.png" alt="F1 Logo" style={{ height: 40, marginRight: 16 }} />
@@ -141,7 +131,7 @@ function NavBar() {
 function Footer() {
   return (
     <Box component="footer" sx={{
-      mt: 6,
+      mt: 0,
       py: 3,
       px: 2,
       background: 'linear-gradient(90deg, #e10600 0%, #fff 100%)',
