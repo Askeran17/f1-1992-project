@@ -34,7 +34,7 @@ export default function AllTeams() {
 
   return (
     <div style={{ minHeight: '100vh', background: '#181818', padding: '2rem 0' }}>
-      <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1 }}>
+      <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1, fontFamily: 'Raleway, Arial, sans-serif', fontWeight: 700 }}>
         All Teams — 1992 Season
       </h2>
       <ChromaGrid items={items} columns={3} rows={Math.ceil(items.length / 3)} />

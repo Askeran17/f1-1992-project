@@ -1,4 +1,6 @@
 import React from 'react';
+import '@fontsource/raleway/600.css';
+import '@fontsource/montserrat/600.css';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
@@ -37,33 +39,87 @@ function App() {
 
 function Home() {
   return (
-    <Container maxWidth="md" sx={{ py: { xs: 2, sm: 4 } }}>
-      <Box textAlign="center" mb={{ xs: 2, sm: 4 }}>
-        <Typography variant="h2" component="h1" gutterBottom color="primary" sx={{ fontSize: { xs: '2rem', sm: '3rem' } }}>
-          Formula 1 — 1992 Season
-        </Typography>
-        <Typography variant="h5" color="text.secondary" paragraph sx={{ fontSize: { xs: '1.1rem', sm: '1.5rem' } }}>
-          The 1992 Formula One World Championship was a landmark season, dominated by Nigel Mansell and the Williams-Renault team. With advanced technology and fierce competition, the season featured legendary drivers like Ayrton Senna, Michael Schumacher, and Riccardo Patrese. Mansell clinched the title with a record number of wins, making 1992 one of the most memorable years in F1 history.
-        </Typography>
-        <Box display="flex" flexDirection={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center" gap={{ xs: 1, sm: 2 }} mb={{ xs: 1, sm: 2 }} width="100%">
-          <Button component={Link} to="/drivers" variant="contained" color="error" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
-            See All Drivers
-          </Button>
-          <Button component={Link} to="/teams" variant="contained" color="success" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
-            See All Teams
-          </Button>
-          <Button component={Link} to="/races" variant="contained" color="info" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
-            See All Races
-          </Button>
-          <Button component={Link} to="/results" variant="contained" color="primary" size="large" fullWidth sx={{ maxWidth: { xs: '100%', sm: 220 }, minWidth: 0 }}>
-            All Race Results
-          </Button>
+  <Box sx={{ minHeight: '100vh', width: '100%', background: 'linear-gradient(135deg, #111216 0%, #18191d 100%)', py: { xs: 2, sm: 4 } }}>
+      <Container maxWidth="md">
+        <Box textAlign="center" mb={{ xs: 2, sm: 4 }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontSize: { xs: '2rem', sm: '3rem' }, fontFamily: 'Raleway, Arial, sans-serif', fontWeight: 700, letterSpacing: 0.5, color: '#fff' }}>
+            Formula 1 — 1992 Season
+          </Typography>
+          <Typography variant="h5" paragraph sx={{ fontSize: { xs: '0.98rem', sm: '1.18rem' }, fontFamily: 'Raleway, Arial, sans-serif', fontWeight: 100, letterSpacing: 0.2, color: '#fff', opacity: 0.92 }}>
+            The 1992 Formula One World Championship was a landmark season, dominated by Nigel Mansell and the Williams-Renault team. With advanced technology and fierce competition, the season featured legendary drivers like Ayrton Senna, Michael Schumacher, and Riccardo Patrese. Mansell clinched the title with a record number of wins, making 1992 one of the most memorable years in F1 history.
+          </Typography>
+          <Box display="flex" flexDirection={{ xs: 'column', sm: 'row' }} justifyContent="center" alignItems="center" gap={{ xs: 1, sm: 2 }} mb={{ xs: 1, sm: 2 }} width="100%">
+            <Button component={Link} to="/drivers" variant="contained" color="error" size="large" fullWidth sx={{
+              maxWidth: { xs: '100%', sm: 220 },
+              minWidth: 0,
+              fontFamily: 'Raleway, Arial, sans-serif',
+              fontWeight: 600,
+              letterSpacing: 0.5,
+              transition: 'filter 0.2s',
+              filter: 'brightness(0.85)',
+              '&:hover': { filter: 'brightness(1)' }
+            }}>
+              See All Drivers
+            </Button>
+            <Button component={Link} to="/teams" variant="contained" color="success" size="large" fullWidth sx={{
+              maxWidth: { xs: '100%', sm: 220 },
+              minWidth: 0,
+              fontFamily: 'Raleway, Arial, sans-serif',
+              fontWeight: 600,
+              letterSpacing: 0.5,
+              transition: 'filter 0.2s',
+              filter: 'brightness(0.85)',
+              '&:hover': { filter: 'brightness(1)' }
+            }}>
+              See All Teams
+            </Button>
+            <Button component={Link} to="/races" variant="contained" color="info" size="large" fullWidth sx={{
+              maxWidth: { xs: '100%', sm: 220 },
+              minWidth: 0,
+              fontFamily: 'Raleway, Arial, sans-serif',
+              fontWeight: 600,
+              letterSpacing: 0.5,
+              transition: 'filter 0.2s',
+              filter: 'brightness(0.85)',
+              '&:hover': { filter: 'brightness(1)' }
+            }}>
+              See All Races
+            </Button>
+            <Button component={Link} to="/results" variant="contained" color="primary" size="large" fullWidth sx={{
+              maxWidth: { xs: '100%', sm: 220 },
+              minWidth: 0,
+              fontFamily: 'Raleway, Arial, sans-serif',
+              fontWeight: 600,
+              letterSpacing: 0.5,
+              transition: 'filter 0.2s',
+              filter: 'brightness(0.85)',
+              '&:hover': { filter: 'brightness(1)' }
+            }}>
+              All Race Results
+            </Button>
+          </Box>
+          <Box mt={4}>
+            <Box
+              component="img"
+              src="/images/f1drivers92.jpg"
+              alt="F1 Drivers 1992"
+              sx={{
+                width: '100%',
+                maxWidth: 950,
+                height: 'auto',
+                maxHeight: 478,
+                objectFit: 'cover',
+                borderRadius: 2,
+                boxShadow: '0 4px 24px rgba(0,0,0,0.15)',
+                transition: 'filter 0.2s',
+                filter: 'brightness(0.85)',
+                '&:hover': { filter: 'brightness(1)' }
+              }}
+            />
+          </Box>
         </Box>
-        <Box mt={4}>
-          <img src="/images/f1drivers92.jpg" alt="F1 Drivers 1992" style={{ width: '100%', maxWidth: 950, height: 'auto', maxHeight: 478, objectFit: 'cover', borderRadius: 16, boxShadow: '0 4px 24px rgba(0,0,0,0.15)' }} />
-        </Box>
-      </Box>
-    </Container>
+      </Container>
+    </Box>
   );
 }
 
@@ -87,38 +143,38 @@ function NavBar() {
               <MenuIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleMenuClose} keepMounted>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/">
+              <MenuItem onClick={handleMenuClose} component={Link} to="/" sx={{ fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
                 Home
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/drivers">
+              <MenuItem onClick={handleMenuClose} component={Link} to="/drivers" sx={{ fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
                 All Drivers
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/teams">
+              <MenuItem onClick={handleMenuClose} component={Link} to="/teams" sx={{ fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
                 All Teams
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/races">
+              <MenuItem onClick={handleMenuClose} component={Link} to="/races" sx={{ fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
                 All Races
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/results">
+              <MenuItem onClick={handleMenuClose} component={Link} to="/results" sx={{ fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
                 All Results
               </MenuItem>
             </Menu>
           </Box>
         ) : (
           <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
-            <Button component={Link} to="/" color="primary" sx={{ mx: 1 }}>
+            <Button component={Link} to="/" color="primary" sx={{ mx: 1, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
               Home
             </Button>
-            <Button component={Link} to="/drivers" color="primary" sx={{ mx: 1 }}>
+            <Button component={Link} to="/drivers" color="primary" sx={{ mx: 1, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
               All Drivers
             </Button>
-            <Button component={Link} to="/teams" color="primary" sx={{ mx: 1 }}>
+            <Button component={Link} to="/teams" color="primary" sx={{ mx: 1, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
               All Teams
             </Button>
-            <Button component={Link} to="/races" color="primary" sx={{ mx: 1 }}>
+            <Button component={Link} to="/races" color="primary" sx={{ mx: 1, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
               All Races
             </Button>
-            <Button component={Link} to="/results" color="primary" sx={{ mx: 1 }}>
+            <Button component={Link} to="/results" color="primary" sx={{ mx: 1, fontFamily: 'Montserrat, Arial, sans-serif', fontWeight: 600, letterSpacing: 0.5 }}>
               All Results
             </Button>
           </Box>
