@@ -4,7 +4,23 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        scriptSrc: ["'self'"],
+        styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+        imgSrc: ["'self'", 'data:', 'https://cdn.jsdelivr.net'],
+        connectSrc: ["'self'"],
+        fontSrc: ["'self'", 'https:', 'data:'],
+        objectSrc: ["'none'"],
+        frameSrc: ["'none'"],
+        upgradeInsecureRequests: [],
+      },
+    },
+  })
+);
 app.use(cors());
 app.use(express.json());
 
