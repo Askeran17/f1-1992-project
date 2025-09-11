@@ -22,22 +22,22 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
 ### All Race Results
 <img src="/img-readme/raceresults.png" alt="All Race Results" width="700" />
 <br/>
-<sub>Shows the full list of 1992 season races with country flags, Grand Prix names, and race dates. Each row can be expanded to view detailed race results, including driver positions and points.</sub>
+<p>Shows the full list of 1992 season races with country flags, Grand Prix names, and race dates. Each row can be expanded to view detailed race results, including driver positions and points.</p>
 
 ### Home Page
 <img src="/img-readme/homepage.png" alt="Home Page" width="700" />
 <br/>
-<sub>The main landing page: features a season summary, navigation bar, quick access buttons to all sections, and a themed championship image. Demonstrates navigation and overview functionality.</sub>
+<p>The main landing page: features a season summary, navigation bar, quick access buttons to all sections, and a themed championship image. Demonstrates navigation and overview functionality.</p>
 
 ### All Teams
 <img src="/img-readme/allteams.png" alt="All Teams" width="700" />
 <br/>
-<sub>Displays all teams from the 1992 season with car photos, team descriptions, and a list of drivers for each team. Highlights team info cards and image presentation.</sub>
+<p>Displays all teams from the 1992 season with car photos, team descriptions, and a list of drivers for each team. Highlights team info cards and image presentation.</p>
 
 ### All Drivers
 <img src="/img-readme/alldrivers.png" alt="All Drivers" width="700" />
 <br/>
-<sub>Shows all drivers of the 1992 season with photos, country, points, and names. Demonstrates driver cards, country display, and points tally.</sub>
+<p>Shows all drivers of the 1992 season with photos, country, points, and names. Demonstrates driver cards, country display, and points tally.</p>
 
 ## Tech Stack
 - **Frontend**: React, Material UI, React Router
