@@ -16,6 +16,29 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
 - **PostgreSQL Database**: All F1 data is stored and managed in a PostgreSQL database
 - **API Endpoints**: `/api/races` (all races), `/api/races/:id/results` (results with driver/team names)
 
+## Screenshots
+
+
+### All Race Results
+<img src="/img-readme/raceresults.png" alt="All Race Results" width="700" />
+<br/>
+<sub>Shows the full list of 1992 season races with country flags, Grand Prix names, and race dates. Each row can be expanded to view detailed race results, including driver positions and points.</sub>
+
+### Home Page
+<img src="/img-readme/homepage.png" alt="Home Page" width="700" />
+<br/>
+<sub>The main landing page: features a season summary, navigation bar, quick access buttons to all sections, and a themed championship image. Demonstrates navigation and overview functionality.</sub>
+
+### All Teams
+<img src="/img-readme/allteams.png" alt="All Teams" width="700" />
+<br/>
+<sub>Displays all teams from the 1992 season with car photos, team descriptions, and a list of drivers for each team. Highlights team info cards and image presentation.</sub>
+
+### All Drivers
+<img src="/img-readme/alldrivers.png" alt="All Drivers" width="700" />
+<br/>
+<sub>Shows all drivers of the 1992 season with photos, country, points, and names. Demonstrates driver cards, country display, and points tally.</sub>
+
 ## Tech Stack
 - **Frontend**: React, Material UI, React Router
 - **Backend**: Node.js, Express
