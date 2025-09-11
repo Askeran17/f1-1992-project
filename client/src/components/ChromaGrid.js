@@ -10,7 +10,8 @@ const ChromaGrid = ({
   rows = 2,
   damping = 0.45,
   fadeOut = 0.6,
-  ease = 'power3.out'
+  ease = 'power3.out',
+  renderCard
 }) => {
   const rootRef = useRef(null);
   const fadeRef = useRef(null);
@@ -110,15 +111,19 @@ const ChromaGrid = ({
             cursor: c.url ? 'pointer' : 'default'
           }}
         >
-          <div className="chroma-img-wrapper">
-            <img src={c.image} alt={c.title} loading="lazy" />
-          </div>
-          <footer className="chroma-info">
-            <h3 className="name">{c.title}</h3>
-            {c.handle && <span className="handle">{c.handle}</span>}
-            <p className="role">{c.subtitle}</p>
-            {c.location && <span className="location">{c.location}</span>}
-          </footer>
+          {renderCard ? renderCard(c) : (
+            <>
+              <div className="chroma-img-wrapper">
+                <img src={c.image} alt={c.title} loading="lazy" />
+              </div>
+              <footer className="chroma-info">
+                <h3 className="name">{c.title}</h3>
+                {c.handle && <span className="handle">{c.handle}</span>}
+                <p className="role">{c.subtitle}</p>
+                {c.location && <span className="location">{c.location}</span>}
+              </footer>
+            </>
+          )}
         </article>
       ))}
       <div className="chroma-overlay" />

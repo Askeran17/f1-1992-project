@@ -190,8 +190,8 @@ function Footer() {
       mt: 0,
       py: 3,
       px: 2,
-      background: 'linear-gradient(90deg, #e10600 0%, #fff 100%)',
-      color: '#222',
+  background: '#ffe600', // bright yellow
+  color: '#222',
       textAlign: 'center',
       fontSize: { xs: '0.95rem', sm: '1.1rem' },
       boxShadow: '0 -2px 12px rgba(0,0,0,0.04)'

@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
+import ReactCountryFlag from 'react-country-flag';
 import {
   Accordion,
   AccordionSummary,
@@ -16,6 +17,31 @@ import {
   Box
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+// Соответствие названия гран-при кода страны (ISO 3166-1 alpha-2)
+const GP_FLAGS = {
+  'South African Grand Prix': 'ZA',
+  'Mexican Grand Prix': 'MX',
+  'Brazilian Grand Prix': 'BR',
+  'Spanish Grand Prix': 'ES',
+  'San Marino Grand Prix': 'SM',
+  'Monaco Grand Prix': 'MC',
+  'Canadian Grand Prix': 'CA',
+  'French Grand Prix': 'FR',
+  'British Grand Prix': 'GB',
+  'German Grand Prix': 'DE',
+  'Hungarian Grand Prix': 'HU',
+  'Belgian Grand Prix': 'BE',
+  'Italian Grand Prix': 'IT',
+  'Portuguese Grand Prix': 'PT',
+  'Japanese Grand Prix': 'JP',
+  'Australian Grand Prix': 'AU',
+};
+
+function formatDate(dateStr) {
+  // Оставляем только yyyy-mm-dd
+  return dateStr.split('T')[0];
+}
 
 function RaceResults() {
   const [races, setRaces] = useState([]);
@@ -55,8 +81,13 @@ function RaceResults() {
         <Accordion key={race.id} onChange={(_, expanded) => expanded && fetchResults(race.id)}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Box width="100%" display="flex" flexDirection={{xs:'column',sm:'row'}} justifyContent="space-between" alignItems={{xs:'flex-start',sm:'center'}}>
-              <Typography variant="h6">{race.name}</Typography>
-              <Typography variant="body2" color="text.secondary">{race.date}</Typography>
+              <Typography variant="h6" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                {GP_FLAGS[race.name] && (
+                  <ReactCountryFlag countryCode={GP_FLAGS[race.name]} svg style={{ width: 28, height: 20, marginRight: 8, borderRadius: 3, boxShadow: '0 1px 4px rgba(0,0,0,0.12)' }} title={GP_FLAGS[race.name]} />
+                )}
+                {race.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">{formatDate(race.date)}</Typography>
             </Box>
           </AccordionSummary>
           <AccordionDetails>

@@ -1,4 +1,8 @@
+
 import React from 'react';
+import Button from '@mui/material/Button';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 import ChromaGrid from './components/ChromaGrid';
 import './components/ChromaGrid.css';
 
@@ -21,24 +25,112 @@ const races = [
   { round: 16, name: 'Australian Grand Prix', winner: 'Gerhard Berger', photo: '/images/australia92.jpg', youtube: 'https://www.youtube.com/watch?v=mAJIO-0p0iM' },
 ];
 
+
+
 export default function AllRaces() {
-  
-  const items = races.map(race => ({
+  const theme = useTheme();
+  const isXs = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSm = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const columns = isXs ? 1 : isSm ? 2 : 3;
+
+  // Map races to ChromaGrid card format
+  const chromaItems = races.map((race) => ({
     image: race.photo,
     title: race.name,
-    subtitle: 'Winner: ' + race.winner,
-    handle: 'Round ' + race.round,
+    handle: `Round ${race.round}`,
+    url: race.youtube,
     borderColor: '#e10600',
-    gradient: 'linear-gradient(145deg, #e10600, #000)',
-    url: race.youtube
+    gradient: 'linear-gradient(135deg, #23242a 60%, #e10600 100%)',
+    // For Portuguese GP, adjust objectPosition via extra prop
+    objectPosition: race.name === 'Portuguese Grand Prix' ? 'center 35%' : 'center',
+    race,
   }));
 
+  // Custom card renderer for ChromaGrid
+  function renderRaceCard(card) {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'stretch', width: '100%', height: '100%' }}>
+        <div className="chroma-img-wrapper" style={{ width: '100%', padding: 0, marginBottom: 12 }}>
+          <img
+            src={card.image}
+            alt={card.title}
+            style={{
+              width: '100%',
+              borderRadius: 12,
+              objectFit: 'cover',
+              objectPosition: card.objectPosition,
+              maxHeight: isXs ? 120 : 160,
+              minHeight: isXs ? 80 : 120,
+              display: 'block',
+            }}
+          />
+        </div>
+        <h3
+          style={{
+            fontFamily: 'Raleway, Arial, sans-serif',
+            fontWeight: 700,
+            fontSize: isXs ? 16 : 22,
+            color: '#fff',
+            margin: '0 0 8px 0',
+            textAlign: 'center',
+          }}
+        >
+          {card.title}
+        </h3>
+        <Button
+          variant="contained"
+          color="error"
+          href={card.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            fontFamily: 'Raleway, Arial, sans-serif',
+            fontWeight: 600,
+            letterSpacing: 0.5,
+            fontSize: isXs ? 14 : 16,
+            py: isXs ? 0.8 : 1.2,
+            px: isXs ? 2 : 3,
+            minWidth: 0,
+            whiteSpace: 'nowrap',
+            background: '#e10600',
+            '&:hover': { background: '#b30000' },
+            alignSelf: 'center',
+            mb: 1.5,
+          }}
+        >
+          Watch review
+        </Button>
+  <div style={{ color: '#aaa', fontSize: isXs ? 12 : 14, marginBottom: 16, marginTop: isXs ? 10 : 16, textAlign: 'center' }}>{card.handle}</div>
+      </div>
+    );
+  }
+
   return (
-    <div style={{ minHeight: '100vh', background: '#181818', padding: '2rem 0' }}>
-       <h2 style={{ textAlign: 'center', color: '#e10600', marginBottom: 32, fontSize: 36, letterSpacing: 1, fontFamily: 'Raleway, Arial, sans-serif', fontWeight: 700 }}>
+    <div style={{ minHeight: '100vh', background: '#181818', padding: isXs ? '1rem 0.2rem' : '2rem 0' }}>
+      <h2
+        style={{
+          textAlign: 'center',
+          color: '#e10600',
+          marginBottom: isXs ? 18 : 32,
+          fontSize: isXs ? 24 : 36,
+          letterSpacing: 1,
+          fontFamily: 'Raleway, Arial, sans-serif',
+          fontWeight: 700,
+        }}
+      >
         All Races — 1992 Season
       </h2>
-      <ChromaGrid items={items} columns={3} rows={Math.ceil(items.length / 3)} />
+      <ChromaGrid
+        items={chromaItems}
+        columns={columns}
+        rows={Math.ceil(chromaItems.length / columns)}
+        className="allraces-chroma"
+        radius={isXs ? 180 : 300}
+        fadeOut={0.7}
+        damping={0.45}
+        ease="power3.out"
+        renderCard={renderRaceCard}
+      />
     </div>
   );
 }
