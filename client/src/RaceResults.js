@@ -18,7 +18,6 @@ import {
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-// Соответствие названия гран-при кода страны (ISO 3166-1 alpha-2)
 const GP_FLAGS = {
   'South African Grand Prix': 'ZA',
   'Mexican Grand Prix': 'MX',
