@@ -45,6 +45,7 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
 - **Database**: PostgreSQL
 - **Deployment**: Render.com
 
+
 ## Getting Started
 
 ### Prerequisites
