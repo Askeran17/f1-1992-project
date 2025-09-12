@@ -36,7 +36,7 @@ const drivers = [
 ];
 
 function AllDrivers() {
-  // Преобразуем данные для ChromaGrid
+    // Transform drivers data for ChromaGrid
   const items = drivers.map(driver => ({
     image: driver.photo,
     title: driver.name,

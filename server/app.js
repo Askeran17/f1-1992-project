@@ -31,12 +31,12 @@ app.use('/api/races', raceRoutes);
 
 const path = require('path');
 
-// Подключать статику и SPA fallback только если не тестовая среда
+// Serve static files from the React app in production
 if (process.env.NODE_ENV !== 'test') {
-  // Отдача статических файлов из React-сборки
+  // Serve static files from the React build
   app.use(express.static(path.resolve(__dirname, '../client/build')));
 
-  // Обработка всех остальных маршрутов — SPA fallback
+  // Handle all other routes — SPA fallback
   app.use((req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
   });

@@ -21,7 +21,7 @@ const teams = [
 ];
 
 export default function AllTeams() {
-  // Преобразуем данные для ChromaGrid
+  // Transform teams data for ChromaGrid
   const items = teams.map(team => ({
     image: team.car,
     title: team.name,

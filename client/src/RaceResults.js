@@ -38,7 +38,7 @@ const GP_FLAGS = {
 };
 
 function formatDate(dateStr) {
-  // Оставляем только yyyy-mm-dd
+  // Leave only yyyy-mm-dd
   return dateStr.split('T')[0];
 }
 

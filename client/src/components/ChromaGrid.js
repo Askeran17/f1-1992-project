@@ -29,7 +29,7 @@ const ChromaGrid = ({
       gradient: 'linear-gradient(145deg, #4F46E5, #000)',
       url: 'https://github.com/'
     },
-    // ... (другие демо-объекты, если items не переданы)
+    
   ];
   const data = items?.length ? items : demo;
 
