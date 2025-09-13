@@ -77,13 +77,36 @@ The app is deployed at: [https://f1-1992-project.onrender.com](https://f1-1992-p
    ```
 3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+
 ### Build for Production
 1. Build the React app:
-   ```bash
-   cd client
-   npm run build
-   ```
+    ```bash
+    cd client
+    npm run build
+    ```
 2. The server is configured to serve the static build from `/client/build`.
+
+### Deployment on Render.com
+
+This project is deployed on [Render.com](https://render.com), a cloud platform for hosting web applications and databases.
+
+**Deployment steps:**
+
+1. Create a new Web Service on Render and connect your GitHub repository.
+2. Set the build and start commands for the server:
+    - **Build Command:**
+       ```bash
+       cd server && npm install
+       ```
+    - **Start Command:**
+       ```bash
+       npm start
+       ```
+3. Add environment variables for your PostgreSQL database connection (e.g., `DATABASE_URL`).
+4. (Optional) Add a PostgreSQL database via Render and link it to your service.
+5. On each push to the main branch, Render will automatically build and deploy the latest version.
+
+See the [Render documentation](https://render.com/docs) for more details.
 
 ## Testing
 
